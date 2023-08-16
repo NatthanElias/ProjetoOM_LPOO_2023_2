@@ -6,7 +6,7 @@ package br.edu.ifsul.bcc.lpoo.om;
 
 /**
  *
- * @author 20221PF.CC0041
+ * @author 20221PF.CC0015
  */
 public class ProjetoOM_LPOO_2023_2 {
 
