@@ -1,10 +1,17 @@
 package br.edu.ifsul.bcc.lpoo.om.model;
 
+import javax.persistence.*;
 import java.util.Calendar;
 
+@DiscriminatorValue("F")
 public class Funcionario extends Pessoa{
+    @Column(nullable = false, length = 10)
     private String numero_ctps;
+    @Column(nullable = true)
+    @Temporal(TemporalType.TIMESTAMP)
     private Calendar data_admissao;
+    @Column(nullable = true)
+    @Temporal(TemporalType.TIMESTAMP)
     private Calendar data_demissao;
 
     public String getNumero_ctps() {

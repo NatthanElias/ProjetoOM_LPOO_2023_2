@@ -1,7 +1,15 @@
 package br.edu.ifsul.bcc.lpoo.om.model;
 
-public class Cargo {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "tb_cargo")
+public class Cargo implements Serializable {
+    @Id
+    @SequenceGenerator(name = "seq_cargo", sequenceName = "seq_cargo_id", allocationSize = 1)
     private Integer id;
+    @Column(nullable = false, length = 100)
     private String descricao;
 
     public Integer getId() {

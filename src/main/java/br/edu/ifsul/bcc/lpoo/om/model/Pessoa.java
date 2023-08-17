@@ -1,14 +1,26 @@
 package br.edu.ifsul.bcc.lpoo.om.model;
 
+import javax.persistence.*;
 import java.util.Calendar;
 
+@Entity
+@Table(name = "tb_pessoa")
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "tipo")
 public abstract class Pessoa {
 
+    @Id
     private String cpf;
+    @Column(nullable = false, length = 11)
     private String nome;
+    @Column(nullable = false, length = 6)
     private String senha;
+    @Column(nullable = true)
+    @Temporal(TemporalType.TIMESTAMP)
     private Calendar data_nascimento;
+    @Column(nullable = true, length = 8)
     private String cep;
+    @Column(nullable = false,  length = 100)
     private String complemento;
 
     public String getCpf() {

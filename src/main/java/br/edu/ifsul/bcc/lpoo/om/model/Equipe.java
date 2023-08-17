@@ -1,8 +1,18 @@
 package br.edu.ifsul.bcc.lpoo.om.model;
 
-public class Equipe {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "tb_equipe")
+public class Equipe implements Serializable {
+    @Id
+    @SequenceGenerator(name = "seq_equipe", sequenceName = "seq_equipe_id", allocationSize = 1)
+    @GeneratedValue(generator = "seq_equipe", strategy = GenerationType.SEQUENCE)
     private Integer id;
+    @Column(nullable = false, length = 100)
     private String nome;
+    @Column(nullable = false, length = 100)
     private String especialidade;
 
     public Integer getId() {

@@ -1,8 +1,13 @@
 package br.edu.ifsul.bcc.lpoo.om.model;
 
+import javax.persistence.*;
 import java.util.Calendar;
-
+@Entity
+@Table(name = "tb_curso")
 public class Curso {
+    @SequenceGenerator(name = "seq_curso", sequenceName = "seq_curso_id", allocationSize = 1)
+    @GeneratedValue(generator = "seq_curso", strategy = GenerationType.SEQUENCE)
+    @Id
     private Integer id;
     private String descricao;
     private Calendar dt_conclusao;

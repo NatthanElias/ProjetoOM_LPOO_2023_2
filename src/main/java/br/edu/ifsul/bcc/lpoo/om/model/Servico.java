@@ -1,5 +1,6 @@
 package br.edu.ifsul.bcc.lpoo.om.model;
 
+import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Calendar;
 
@@ -7,11 +8,21 @@ import java.util.Calendar;
  *
  * @author 20221PF.CC0015
  */
-public class Servico {
 
+@Entity
+@Table(name = "tb_servico")
+public class Servico {
+    @SequenceGenerator(name = "seq_serv", sequenceName = "seq_serv_id", allocationSize = 1)
+    @GeneratedValue(generator = "seq_serv", strategy = GenerationType.SEQUENCE)
+    @Id
     private Integer  id;
+    @Column(nullable = false)
     private Float valor;
+    @Column(nullable = true)
+    @Temporal(TemporalType.TIMESTAMP)
     private Calendar data_inicio;
+    @Column(nullable = true)
+    @Temporal(TemporalType.TIMESTAMP)
     private Calendar data_fim;
 
     public Integer getId() {

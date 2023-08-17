@@ -1,10 +1,16 @@
 package br.edu.ifsul.bcc.lpoo.om.model;
 
+import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import java.nio.channels.FileLock;
 import java.util.Calendar;
 
+@Entity
+@Table(name = "tb_pagamento")
 public class Pagamento {
+    @Id
+    @SequenceGenerator(name = "seq_pag", sequenceName = "seq_pag_id", allocationSize = 1)
+    @GeneratedValue(generator = "seq_pag", strategy = GenerationType.SEQUENCE)
     private Integer id;
     private Integer numero_parcela;
     private Calendar data_vencimento;

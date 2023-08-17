@@ -1,11 +1,19 @@
 package br.edu.ifsul.bcc.lpoo.om.model;
 
+import javax.persistence.*;
 import java.util.Calendar;
 
+@Entity
+@Table(name = "tb_veiculo")
 public class Veiculo {
+    @Id
     private String placa;
+    @Column(nullable = false, length = 50)
     private String modelo;
+    @Column(nullable = false)
     private Integer ano;
+    @Column(nullable = true)
+    @Temporal(TemporalType.TIMESTAMP)
     private Calendar data_ultimo_servico;
 
     public String getPlaca() {
